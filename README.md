@@ -32,17 +32,19 @@ This tool retrieves version information for Helm charts, pods, and nodes in a SU
 2.  **Run the script:**
 
     ```bash
-    python get_versions.py -f <kubeconfig_path> -c <chart_names> -o <output_format>
+    python suse-edge-components-versions.py -k <kubeconfig_path> -c <chart_names> -o <output_format>
     ```
 
     * `-k`: Path to the kubeconfig file (optional). If not provided, defaults to `/kubeconfig`
     * `-c`: Comma-separated list of Helm chart names (optional). If not provided, defaults to `metallb,endpoint-copier-operator`.
     * `-o`: Output format: `json` (default) or `table`.
+    * `--show-resources`: Include resources created by the helm chart in the output.
+    * `-h`: Show help.
 
 **Example:**
 
 ```bash
-python get_versions.py -f /path/to/kubeconfig -c cert-manager,metallb -o table
+python suse-edge-components-versions.py -k /path/to/kubeconfig -c cert-manager,metallb -o table
 ```
 
 ## Container
@@ -59,6 +61,12 @@ podman build -t suse-edge-components-versions .
 
 ```bash
 podman run -v /path/to/your/kubeconfig:/kubeconfig suse-edge-components-versions -c <chart_names>
+```
+
+*NOTE:* Just in case, there is a prebuilt image available at `ghcr.io/e-minguez/suse-edge-components-versions:main`
+
+```bash
+podman run -v /path/to/your/kubeconfig:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
 ```
 
 ## GitHub Actions
