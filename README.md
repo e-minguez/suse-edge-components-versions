@@ -69,6 +69,50 @@ podman run -v /path/to/your/kubeconfig:/kubeconfig suse-edge-components-versions
 podman run -v /path/to/your/kubeconfig:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
 ```
 
+## Example output
+
+```bash
+{
+  "helm_charts": {
+    "endpoint-copier-operator": {
+      "version": "302.0.0+up0.2.1",
+      "namespace": "endpoint-copier-operator",
+      "revision": 1,
+      "pods": {
+        "endpoint-copier-operator-7bf97b9d45-7v8fp": [
+          "registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0"
+        ],
+        "endpoint-copier-operator-7bf97b9d45-p8m9k": [
+          "registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0"
+        ]
+      }
+    },
+    "metallb": {
+      "version": "302.0.0+up0.14.9",
+      "namespace": "metallb-system",
+      "revision": 1,
+      "pods": {
+        "metallb-controller-5756c8898-g2mgk": [
+          "registry.suse.com/edge/3.2/metallb-controller:v0.14.8"
+        ],
+        "metallb-speaker-9ltj7": [
+          "registry.suse.com/edge/3.2/metallb-speaker:v0.14.8"
+        ]
+      }
+    }
+  },
+  "nodes": {
+    "vm1": {
+      "architecture": "arm64",
+      "kernelVersion": "6.4.0-18-default",
+      "kubeletVersion": "v1.31.3+rke2r1",
+      "operatingSystem": "linux",
+      "osImage": "SUSE Linux Micro 6.0"
+    }
+  }
+}
+```
+
 ## GitHub Actions
 
 A GitHub Actions workflow is included to automatically build and push the Docker image to the GitHub Container Registry on every push to the main branch.
