@@ -63,7 +63,7 @@ podman build -t suse-edge-components-versions .
 podman run -v /path/to/your/kubeconfig:/kubeconfig suse-edge-components-versions -c <chart_names>
 ```
 
-*NOTE:* Just in case, there is a prebuilt image available at `ghcr.io/e-minguez/suse-edge-components-versions:main`
+*NOTE:* Just in case, there is a prebuilt image available at `ghcr.io/e-minguez/suse-edge-components-versions:main` (`linux/amd64` & `linux/arm64` compatible).
 
 ```bash
 podman run -v /path/to/your/kubeconfig:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
