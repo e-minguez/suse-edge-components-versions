@@ -63,16 +63,20 @@ podman build -t suse-edge-components-versions .
 **Run the container:**
 
 ```bash
-podman run -v /path/to/your/kubeconfig:/kubeconfig suse-edge-components-versions -c <chart_names>
+podman run -it --rm -v /path/to/your/kubeconfig:/kubeconfig suse-edge-components-versions -c <chart_names>
 ```
 
 *NOTE:* Just in case, there is a prebuilt image available at `ghcr.io/e-minguez/suse-edge-components-versions:main` (`linux/amd64` & `linux/arm64` compatible).
 
 ```bash
-podman run -v /path/to/your/kubeconfig:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
+podman run -it --rm -v /path/to/your/kubeconfig:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
 ```
 
-*NOTE:* Running this directly on a K3s/RKE2 host needs to 
+*NOTE:* Running this as a container directly on a K3s/RKE2 host requires to use the `--network=host` flag as the RKE2/K3s kubeconfig points to `127.0.0.1:6443`
+
+```bash
+podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig ghcr.io/e-minguez/suse-edge-components-versions:main -c <chart_names>
+```
 
 ## Example output
 
