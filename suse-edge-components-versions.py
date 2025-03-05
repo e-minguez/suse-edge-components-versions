@@ -16,11 +16,14 @@ logging.basicConfig(level=logging.WARN,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Default chart names
-DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator"]
+DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator", 
+                  "rancher", "longhorn", "longhorn-crd", "cdi",
+                  "kubevirt", "neuvector", "elemental-operator",
+                  "sriov-network-operator", "akri", "metal3", "rancher-turtles"]
 
 
 async def get_helm_chart_info(kubeconfig_path: str,
-                             chart_names: List[str]) -> Dict:
+                              chart_names: List[str]) -> Dict:
     """
     Retrieves specific Helm chart information using pyhelm3.
 
@@ -62,8 +65,8 @@ async def get_helm_chart_info(kubeconfig_path: str,
                 label_selector = f"app.kubernetes.io/instance={release.name}"
                 chart_info[release.name][
                     "pods"] = get_pod_versions_by_label(kubeconfig_path,
-                                                       release.namespace,
-                                                       label_selector)
+                                                        release.namespace,
+                                                        label_selector)
 
         return chart_info
 
@@ -73,8 +76,8 @@ async def get_helm_chart_info(kubeconfig_path: str,
 
 
 def get_pod_versions_by_label(kubeconfig_path: str,
-                               namespace: str,
-                               label_selector: str) -> Dict:
+                              namespace: str,
+                              label_selector: str) -> Dict:
     """
     Retrieves pod image versions in a namespace based on a label selector.
 
@@ -202,22 +205,23 @@ def print_table_output(helm_info: Dict, node_info: Dict, show_resources: bool):
             ["Revision", info['revision']]
         ]
         print(tabulate(chart_table_data,
-                      tablefmt="grid",
-                      numalign="left",
-                      stralign="left"))
+                       tablefmt="grid",
+                       numalign="left",
+                       stralign="left"))
 
         if show_resources:
             # Resources table
             print("\n  Resources:")
             resources_table_data = []
             for resource in info["resources"]:
-                resources_table_data.append([resource["kind"], resource["name"]])
+                resources_table_data.append(
+                    [resource["kind"], resource["name"]])
             print(
                 tabulate(resources_table_data,
-                          headers=["Kind", "Name"],
-                          tablefmt="grid",
-                          numalign="left",
-                          stralign="left"))
+                         headers=["Kind", "Name"],
+                         tablefmt="grid",
+                         numalign="left",
+                         stralign="left"))
 
         # Pods table
         print("\n  Pods:")
@@ -225,10 +229,10 @@ def print_table_output(helm_info: Dict, node_info: Dict, show_resources: bool):
         for pod_name, images in info["pods"].items():
             pods_table_data.append([pod_name, ", ".join(images)])
         print(tabulate(pods_table_data,
-                      headers=["Pod Name", "Images"],
-                      tablefmt="grid",
-                      numalign="left",
-                      stralign="left"))
+                       headers=["Pod Name", "Images"],
+                       tablefmt="grid",
+                       numalign="left",
+                       stralign="left"))
 
     # Node information
     print("\nNode Information:")
@@ -239,13 +243,13 @@ def print_table_output(helm_info: Dict, node_info: Dict, show_resources: bool):
             info["kubeletVersion"], info["operatingSystem"], info["osImage"]
         ])
     print(tabulate(node_table_data,
-                  headers=[
-                      "Node", "Architecture", "Kernel Version",
-                      "Kubelet Version", "Operating System", "OS Image"
-                  ],
-                  tablefmt="grid",
-                  numalign="left",
-                  stralign="left"))
+                   headers=[
+                       "Node", "Architecture", "Kernel Version",
+                       "Kubelet Version", "Operating System", "OS Image"
+                   ],
+                   tablefmt="grid",
+                   numalign="left",
+                   stralign="left"))
 
 
 if __name__ == "__main__":
