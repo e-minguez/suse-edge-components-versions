@@ -36,7 +36,10 @@ This tool retrieves version information for Helm charts, pods, and nodes in a SU
     ```
 
     * `-k`: Path to the kubeconfig file (optional). If not provided, defaults to `/kubeconfig`
-    * `-c`: Comma-separated list of Helm chart names (optional). If not provided, defaults to `metallb,endpoint-copier-operator`.
+    * `-c`: Comma-separated list of Helm chart names (optional). If not provided, defaults to `metallb, endpoint-copier-operator, 
+                  rancher, longhorn, cdi,
+                  kubevirt, neuvector, elemental-operator,
+                  sriov-network-operator, akri, metal3 & rancher-turtles`.
     * `-o`: Output format: `json` (default) or `table`.
     * `--show-resources`: Include resources created by the helm chart in the output.
     * `-h`: Show help.
