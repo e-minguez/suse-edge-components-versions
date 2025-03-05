@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.WARN,
 
 # Default chart names
 DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator",
-                  "rancher", "longhorn", "longhorn-crd", "cdi",
+                  "rancher", "longhorn", "cdi",
                   "kubevirt", "neuvector", "elemental-operator",
                   "sriov-network-operator", "akri", "metal3",
                   "system-upgrade-controller", "rancher-turtles"]
