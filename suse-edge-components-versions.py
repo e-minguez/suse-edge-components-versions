@@ -16,23 +16,17 @@ logging.basicConfig(level=logging.WARN,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Default chart names
-DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator", 
+DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator",
                   "rancher", "longhorn", "longhorn-crd", "cdi",
                   "kubevirt", "neuvector", "elemental-operator",
-                  "sriov-network-operator", "akri", "metal3", "rancher-turtles"]
+                  "sriov-network-operator", "akri", "metal3",
+                  "system-upgrade-controller", "rancher-turtles"]
 
 
 async def get_helm_chart_info(kubeconfig_path: str,
                               chart_names: List[str]) -> Dict:
     """
     Retrieves specific Helm chart information using pyhelm3.
-
-    Args:
-        kubeconfig_path: Path to the kubeconfig file.
-        chart_names: List of Helm chart names.
-
-    Returns:
-        A dictionary containing Helm chart information.
     """
     chart_info = {}
     try:
@@ -42,31 +36,37 @@ async def get_helm_chart_info(kubeconfig_path: str,
         for release in releases:
             if release.name in chart_names:
                 revision = await release.current_revision()
-                chart_metadata = await revision.chart_metadata()
-                chart_info[release.name] = {
-                    "version": f"{chart_metadata.version}",
-                    "namespace": release.namespace,
-                    "revision": revision.revision,
-                    "resources": [],
-                    "pods": {}
-                }
-                # Create a Command object to get the resources
-                command = Command(kubeconfig=kubeconfig_path)
-                resources = await command.get_resources(
-                    release_name=release.name, namespace=release.namespace)
-                for resource in resources:
-                    # Append resource as a dictionary
-                    chart_info[release.name]["resources"].append({
-                        "kind": resource['kind'],
-                        "name": resource['metadata']['name']
-                    })
+                if revision is not None:  # Check if revision is not None
+                    chart_metadata = await revision.chart_metadata()
+                    if chart_metadata is not None:  # Check if chart_metadata is not None
+                        chart_info[release.name] = {
+                            "version": f"{chart_metadata.version}",
+                            "namespace": release.namespace,
+                            "revision": revision.revision,
+                            "resources": [],
+                            "pods": {}
+                        }
+                        command = Command(kubeconfig=kubeconfig_path)
+                        resources = await command.get_resources(
+                            release_name=release.name,
+                            namespace=release.namespace)
+                        if resources is not None:  # Check if resources is not None
+                            for resource in resources:
+                                if resource is not None and isinstance(resource, dict) and 'kind' in resource and 'metadata' in resource and 'name' in resource['metadata']:
+                                    chart_info[release.name]["resources"].append({
+                                        "kind": resource['kind'],
+                                        "name": resource['metadata']['name']
+                                    })
+                                else:
+                                    logging.warning(
+                                        f"Skipping invalid resource: {resource}")
 
-                # Get pod versions for the current Helm chart
-                label_selector = f"app.kubernetes.io/instance={release.name}"
-                chart_info[release.name][
-                    "pods"] = get_pod_versions_by_label(kubeconfig_path,
-                                                        release.namespace,
-                                                        label_selector)
+                        # Get pod versions for the current Helm chart
+                        label_selector = f"app.kubernetes.io/instance={release.name}"
+                        pods_info = get_pod_versions_by_label(
+                            kubeconfig_path, release.namespace, label_selector)
+                        if pods_info is not None:  # Check if pods_info is not None
+                            chart_info[release.name]["pods"] = pods_info
 
         return chart_info
 
