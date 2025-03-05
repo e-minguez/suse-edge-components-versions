@@ -63,8 +63,8 @@ async def get_helm_chart_info(kubeconfig_path: str,
 
                         # Get pod versions for the current Helm chart
                         label_selector = f"app.kubernetes.io/instance={release.name}"
-                        pods_info = get_pod_versions_by_label(
-                            kubeconfig_path, release.namespace, label_selector)
+                        pods_info = get_pod_versions_by_namespace(
+                            kubeconfig_path, release.namespace)
                         if pods_info is not None:  # Check if pods_info is not None
                             chart_info[release.name]["pods"] = pods_info
 
@@ -75,16 +75,14 @@ async def get_helm_chart_info(kubeconfig_path: str,
         return {}
 
 
-def get_pod_versions_by_label(kubeconfig_path: str,
-                              namespace: str,
-                              label_selector: str) -> Dict:
+def get_pod_versions_by_namespace(kubeconfig_path: str,
+                              namespace: str) -> Dict:
     """
-    Retrieves pod image versions in a namespace based on a label selector.
+    Retrieves pod image versions in a namespace.
 
     Args:
         kubeconfig_path: Path to the kubeconfig file.
         namespace: The namespace where the pods are located.
-        label_selector: The label selector to filter pods.
 
     Returns:
         A dictionary containing pod names as keys and lists of image versions as values.
@@ -92,7 +90,7 @@ def get_pod_versions_by_label(kubeconfig_path: str,
     try:
         config.load_kube_config(config_file=kubeconfig_path)
         v1 = client.CoreV1Api()
-        pods = v1.list_namespaced_pod(namespace, label_selector=label_selector)
+        pods = v1.list_namespaced_pod(namespace)
         pod_versions = {}
         for pod in pods.items:
             pod_name = pod.metadata.name
