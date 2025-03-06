@@ -8,6 +8,7 @@ This tool retrieves version information for Helm charts, pods, and nodes in a SU
 * Retrieves pod versions (container images) for each Helm chart.
 * Retrieves node information (architecture, kernel version, kubelet version, operating system, OS image).
 * Outputs the information in JSON or table format.
+* Detects the Edge version.
 
 ## Usage
 
@@ -41,7 +42,7 @@ This tool retrieves version information for Helm charts, pods, and nodes in a SU
                   kubevirt, neuvector, elemental-operator,
                   sriov-network-operator, akri, metal3, system-upgrade-controller & rancher-turtles`.
     * `-o`: Output format: `json` (default) or `table`.
-    * `--show-resources`: Include resources created by the helm chart in the output.
+    * `--get-resources`: Get (and print) resources created by the helm chart.
     * `-h`: Show help.
 
 **Example:**
@@ -323,7 +324,8 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "operatingSystem": "linux",
       "osImage": "SUSE Linux Micro 6.0"
     }
-  }
+  },
+  "detected_edge_version": "3.2.0"
 }
 ```
 
@@ -550,6 +552,8 @@ Node Information:
 +-----------+----------------+------------------+-------------------+--------------------+----------------------+
 | host3rke2 | amd64          | 6.4.0-18-default | v1.31.3+rke2r1    | linux              | SUSE Linux Micro 6.0 |
 +-----------+----------------+------------------+-------------------+--------------------+----------------------+
+
+SUSE Edge detected version: 3.2.0
 ```
 
 ## GitHub Actions
