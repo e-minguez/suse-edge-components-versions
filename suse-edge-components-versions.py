@@ -16,11 +16,19 @@ logging.basicConfig(level=logging.WARN,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Default chart names
-DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator",
-                  "rancher", "longhorn", "cdi",
-                  "kubevirt", "neuvector", "elemental-operator",
-                  "sriov-network-operator", "akri", "metal3",
-                  "system-upgrade-controller", "rancher-turtles"]
+DEFAULT_CHARTS = ["cdi",
+                  "elemental-operator",
+                  "endpoint-copier-operator",
+                  "kubevirt",
+                  "longhorn",
+                  "metal3",
+                  "metallb",
+                  "neuvector",
+                  "rancher",
+                  "rancher-turtles",
+                  "sriov-network-operator",
+                  "system-upgrade-controller",
+                  "upgrade-controller"]
 
 CHARTS_AND_PRODUCTS = {"longhorn": "SUSE Storage",
                        "metal3": "Metal3",
@@ -33,7 +41,9 @@ CHARTS_AND_PRODUCTS = {"longhorn": "SUSE Storage",
                        "neuvector": "SUSE Security",
                        "sriov-network-operator": "SR-IOV Network Operator",
                        "akri": "Akri (tech-preview)",
-                       "rancher-turtles": "Rancher Turtles (CAPI)"}
+                       "rancher-turtles": "Rancher Turtles (CAPI)",
+                       "system-upgrade-controller": "System Upgrade Controller",
+                       "upgrade-controller": "Upgrade Controller"}
 
 
 async def get_helm_chart_info(kubeconfig_path: str,
