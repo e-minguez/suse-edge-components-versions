@@ -30,20 +30,20 @@ DEFAULT_CHARTS = ["cdi",
                   "system-upgrade-controller",
                   "upgrade-controller"]
 
-CHARTS_AND_PRODUCTS = {"longhorn": "SUSE Storage",
-                       "metal3": "Metal3",
-                       "metallb": "MetalLB",
-                       "endpoint-copier-operator": "Endpoint Copier Operator",
-                       "elemental-operator": "Elemental",
-                       "rancher": "SUSE Rancher Prime",
-                       "cdi": "Containerized Data Importer",
-                       "kubevirt": "KubeVirt",
-                       "neuvector": "SUSE Security",
-                       "sriov-network-operator": "SR-IOV Network Operator",
-                       "akri": "Akri (tech-preview)",
-                       "rancher-turtles": "Rancher Turtles (CAPI)",
-                       "system-upgrade-controller": "System Upgrade Controller",
-                       "upgrade-controller": "Upgrade Controller"}
+CHARTS_AND_PRODUCTS = {"longhorn": ["SUSE Storage","Longhorn"],
+                       "metal3": ["Metal3"],
+                       "metallb": ["MetalLB"],
+                       "endpoint-copier-operator": ["Endpoint Copier Operator"],
+                       "elemental-operator": ["Elemental"],
+                       "rancher": ["SUSE Rancher Prime","Rancher Prime"],
+                       "cdi": ["Containerized Data Importer"],
+                       "kubevirt": ["KubeVirt"],
+                       "neuvector": ["SUSE Security","NeuVector"],
+                       "sriov-network-operator": ["SR-IOV Network Operator"],
+                       "akri": ["Akri (tech-preview)"],
+                       "rancher-turtles": ["Rancher Turtles (CAPI)"],
+                       "system-upgrade-controller": ["System Upgrade Controller"],
+                       "upgrade-controller": ["Upgrade Controller"]}
 
 
 async def get_helm_chart_info(kubeconfig_path: str,
@@ -356,7 +356,7 @@ def check_edge_version(node_info, helm_info):
                     # Time to check the helm charts
                     for name, info in helm_info.items():
                         # This is required because chart name != product name
-                        chart_name = sanitize_chart_name(name)
+                        chart_name = sanitize_chart_name(name,release_data['Data'])
                         # Skip charts not found
                         if chart_name:
                             chart_version = info['version']
@@ -389,8 +389,14 @@ def check_edge_version(node_info, helm_info):
     return {"release": "unknown"}
 
 
-def sanitize_chart_name(chart_name):
-    return CHARTS_AND_PRODUCTS[chart_name]
+def sanitize_chart_name(chart_name,data):
+    candidates=CHARTS_AND_PRODUCTS[chart_name]
+    if len(candidates) > 1:
+        for candidate in candidates:
+            if candidate in data:
+                return candidate
+    else:
+        return candidates[0]
 
 
 if __name__ == "__main__":
