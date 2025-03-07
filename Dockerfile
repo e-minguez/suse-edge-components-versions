@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 		zypper install -y helm && \
 		zypper clean --all
 
-COPY suse-edge-components-versions.py .
+COPY suse-edge-components-versions.py edge-versions/ ./
 
 ENTRYPOINT ["python3", "suse-edge-components-versions.py"]
