@@ -4,9 +4,8 @@ import json
 import logging
 import os
 import sys
-import re
 from argparse import ArgumentParser
-from typing import Dict, List
+from typing import Any, Dict, List
 
 from kubernetes import client, config
 from pyhelm3 import Client, Command
@@ -24,17 +23,18 @@ DEFAULT_CHARTS = ["metallb", "endpoint-copier-operator",
                   "system-upgrade-controller", "rancher-turtles"]
 
 CHARTS_AND_PRODUCTS = {"longhorn": "SUSE Storage",
-             "metal3": "Metal3",
-             "metallb": "MetalLB",
-             "endpoint-copier-operator": "Endpoint Copier Operator",
-             "elemental-operator": "Elemental",
-             "rancher": "SUSE Rancher Prime",
-             "cdi": "Containerized Data Importer",
-             "kubevirt": "Kubevirt",
-             "neuvector": "SUSE Security",
-             "sriov-network-operator": "SR-IOV Network Operator",
-             "akri": "Akri (tech-preview)",
-             "rancher-turtles": "Rancher Turtles (CAPI)"}
+                       "metal3": "Metal3",
+                       "metallb": "MetalLB",
+                       "endpoint-copier-operator": "Endpoint Copier Operator",
+                       "elemental-operator": "Elemental",
+                       "rancher": "SUSE Rancher Prime",
+                       "cdi": "Containerized Data Importer",
+                       "kubevirt": "Kubevirt",
+                       "neuvector": "SUSE Security",
+                       "sriov-network-operator": "SR-IOV Network Operator",
+                       "akri": "Akri (tech-preview)",
+                       "rancher-turtles": "Rancher Turtles (CAPI)"}
+
 
 async def get_helm_chart_info(kubeconfig_path: str,
                               chart_names: List[str],
@@ -90,13 +90,8 @@ async def get_helm_chart_info(kubeconfig_path: str,
         return {}
 
 
-    except Exception as e:
-        logging.error(f"Error retrieving Helm chart information: {e}")
-        return {}
-
-
 def get_pod_versions_by_namespace(kubeconfig_path: str,
-                              namespace: str) -> Dict:
+                                  namespace: str) -> Dict:
     """
     Retrieves pod image versions in a namespace.
 
@@ -192,10 +187,11 @@ async def main():
     helm_info = await get_helm_chart_info(kubeconfig_path, chart_names, get_resources)
     node_info = get_node_info(kubeconfig_path)
 
-    edge_version = check_edge_version(node_info,helm_info)
+    edge_version = check_edge_version(node_info, helm_info)
 
     if output_format == "json":
-        output_data = {"helm_charts": helm_info, "nodes": node_info, "detected_edge_version": edge_version}
+        output_data = {"helm_charts": helm_info,
+                       "nodes": node_info, "detected_edge_version": edge_version}
         if not get_resources:
             for chart_data in output_data["helm_charts"].values():
                 chart_data.pop("resources", None)
@@ -206,14 +202,14 @@ async def main():
         print(f"SUSE Edge detected version: {edge_version}")
 
 
-def print_table_output(helm_info: Dict, node_info: Dict, edge_version: str, get_resources: bool):
+def print_table_output(helm_info: Dict, node_info: Dict, edge_version: Dict, get_resources: bool):
     """
     Prints the cluster information in a table format.
 
     Args:
         helm_info: Dictionary containing Helm chart information.
         node_info: Dictionary containing node information.
-        edge_version: String with the detected SUSE Edge version
+        edge_version: Dictionary with the detected SUSE Edge version
         get_resources: Whether to get (and print) resources.
     """
 
@@ -273,21 +269,45 @@ def print_table_output(helm_info: Dict, node_info: Dict, edge_version: str, get_
                    tablefmt="grid",
                    numalign="left",
                    stralign="left"))
-    
-        
+
     # Edge version
-    print(f"\nSUSE Edge detected version: {edge_version}")
+    print(f"\nSUSE Edge detected version: {edge_version['release']}")
+
+    if edge_version['items_matching'] != {}:
+        matching = edge_version['items_matching']
+        matching_table_data = []
+        for k, v in matching.items():
+            matching_table_data.append([k, v])
+        print(f"\nSUSE Edge items matching:")
+        print(tabulate(matching_table_data, headers=["Component", "Version"],
+                       tablefmt="grid",
+                       numalign="left",
+                       stralign="left"))
+
+    if edge_version['items_not_matching'] != {}:
+        notmatching = edge_version['items_not_matching']
+        notmatching_table_data = []
+        for k, v in notmatching.items():
+            notmatching_table_data.append([k, v])
+        print(f"\nSUSE Edge items NOT matching:")
+        print(tabulate(notmatching_table_data, headers=["Component", "Version"],
+                       tablefmt="grid",
+                       numalign="left",
+                       stralign="left"))
+
 
 def check_edge_version(node_info, helm_info):
     # Check for same versions on all the hosts
-    kubelet_versions = set(node["kubeletVersion"] for node in node_info.values())
+    kubelet_versions = set(node["kubeletVersion"]
+                           for node in node_info.values())
     # Get the first one of the set
     kubelet_version = list(kubelet_versions)[0]
     # If the set is >1
     if len(kubelet_versions) != 1:
-        print(f"Kubelet Versions mismatch! {kubelet_versions}, using {kubelet_version} as reference")
+        print(
+            f"Kubelet Versions mismatch! {kubelet_versions}, using {kubelet_version} as reference")
     # Try to match the distro
-    #kube_distro = re.search(r"\+(k3s|rke2)r\d+", kubelet_version).group(1)
+    # kube_distro = re.search(r"\+(k3s|rke2)r\d+", kubelet_version).group(1)
     # And version
     kube_version = kubelet_version.split("+")[0].split("v")[1]
 
@@ -295,14 +315,18 @@ def check_edge_version(node_info, helm_info):
     os_images = set(node["osImage"] for node in node_info.values())
     os_image = list(os_images)[0]
     if len(os_images) != 1:
-        print(f"Node osImage mismatch! {os_images}, using {os_image} as reference")
+        print(
+            f"Node osImage mismatch! {os_images}, using {os_image} as reference")
 
     # And kernel version
     kernel_versions = set(node["kernelVersion"] for node in node_info.values())
     kernel_version = list(kernel_versions)[0]
     if len(kernel_versions) != 1:
-        print(f"Node kernel mismatch! {kernel_versions}, using {kernel_version} as reference")
+        print(
+            f"Node kernel mismatch! {kernel_versions}, using {kernel_version} as reference")
 
+    # Make pylint happy
+    edge_version: Dict[str, Any] = {}
     matches = {}
     notmatches = {}
     # Try to match the edge version with each one of the released versions
@@ -313,8 +337,8 @@ def check_edge_version(node_info, helm_info):
                 with open(filepath, 'r') as f:
                     release_data = json.load(f)
 
-                k3s_version=(release_data['Data']['K3s']['Version'])
-                rke2_version=(release_data['Data']['RKE2']['Version'])
+                k3s_version = (release_data['Data']['K3s']['Version'])
+                rke2_version = (release_data['Data']['RKE2']['Version'])
 
                 if (k3s_version or rke2_version) == kube_version:
                     # Kube version matches
@@ -331,22 +355,33 @@ def check_edge_version(node_info, helm_info):
                                 matches[name] = chart_version
                             else:
                                 notmatches[name] = chart_version
-                            #     print(f"Helm Chart {chart_name} with version {chart_version} doesn't match {name} - {release_version}")
                     if notmatches == {}:
                         # Everything matches
-                        return release_data['Version']
+                        edge_version = {"release":
+                                        release_data['Version']}
+                    elif matches == {}:
+                        # Nothing matches
+                        edge_version = {"relaese":
+                                        "Unknown"}
                     else:
-                        return f"Posible {release_data['Version']}"
+                        # Not everything matches
+                        edge_version = {"release":
+                                        f"Posible {release_data['Version']}"}
+
+                    edge_version["items_matching"] = matches
+                    edge_version["items_not_matching"] = notmatches
+                    return edge_version
 
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON in {filename}: {e}")
             except Exception as e:
                 print(f"Error processing {filename}: {e}")
+    return {"release": "unknown"}
 
-    return "Unknown"
 
 def sanitize_chart_name(chart_name):
     return CHARTS_AND_PRODUCTS[chart_name]
+
 
 if __name__ == "__main__":
     asyncio.run(main())
