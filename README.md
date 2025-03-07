@@ -91,10 +91,10 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "endpoint-copier-operator",
       "revision": 1,
       "pods": {
-        "endpoint-copier-operator-7bf97b9d45-7qqr7": [
+        "endpoint-copier-operator-7bf97b9d45-psrs7": [
           "registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0"
         ],
-        "endpoint-copier-operator-7bf97b9d45-xks2l": [
+        "endpoint-copier-operator-7bf97b9d45-z2xws": [
           "registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0"
         ]
       }
@@ -104,49 +104,49 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "longhorn-system",
       "revision": 1,
       "pods": {
-        "csi-attacher-787fd9c6c8-5kdtc": [
+        "csi-attacher-787fd9c6c8-nnmkb": [
           "rancher/mirrored-longhornio-csi-attacher:v4.7.0"
         ],
-        "csi-attacher-787fd9c6c8-mf8c9": [
+        "csi-attacher-787fd9c6c8-sd6p5": [
           "rancher/mirrored-longhornio-csi-attacher:v4.7.0"
         ],
-        "csi-attacher-787fd9c6c8-qmhb2": [
+        "csi-attacher-787fd9c6c8-xt64s": [
           "rancher/mirrored-longhornio-csi-attacher:v4.7.0"
         ],
-        "csi-provisioner-74486b95c6-5k2tf": [
+        "csi-provisioner-74486b95c6-4ghrf": [
           "rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007"
         ],
-        "csi-provisioner-74486b95c6-n5kxn": [
+        "csi-provisioner-74486b95c6-mfrz2": [
           "rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007"
         ],
-        "csi-provisioner-74486b95c6-qbcfl": [
+        "csi-provisioner-74486b95c6-tvt5l": [
           "rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007"
         ],
-        "csi-resizer-859d4557fd-b5xt8": [
+        "csi-resizer-859d4557fd-9rjjf": [
           "rancher/mirrored-longhornio-csi-resizer:v1.12.0"
         ],
-        "csi-resizer-859d4557fd-bktc9": [
+        "csi-resizer-859d4557fd-hg6fw": [
           "rancher/mirrored-longhornio-csi-resizer:v1.12.0"
         ],
-        "csi-resizer-859d4557fd-cv8nw": [
+        "csi-resizer-859d4557fd-zjm4w": [
           "rancher/mirrored-longhornio-csi-resizer:v1.12.0"
         ],
-        "csi-snapshotter-6f69c6c8cc-dp4zd": [
+        "csi-snapshotter-6f69c6c8cc-9vmfp": [
           "rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007"
         ],
-        "csi-snapshotter-6f69c6c8cc-ftg2q": [
+        "csi-snapshotter-6f69c6c8cc-hhx22": [
           "rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007"
         ],
-        "csi-snapshotter-6f69c6c8cc-tdfvj": [
+        "csi-snapshotter-6f69c6c8cc-wm925": [
           "rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007"
         ],
-        "engine-image-ei-4623b511-lq8nv": [
+        "engine-image-ei-4623b511-6gq8h": [
           "rancher/mirrored-longhornio-longhorn-engine:v1.7.2"
         ],
-        "engine-image-ei-4623b511-pwpdg": [
+        "engine-image-ei-4623b511-d4d6d": [
           "rancher/mirrored-longhornio-longhorn-engine:v1.7.2"
         ],
-        "engine-image-ei-4623b511-vmbcg": [
+        "engine-image-ei-4623b511-kczg5": [
           "rancher/mirrored-longhornio-longhorn-engine:v1.7.2"
         ],
         "instance-manager-48853cc97a50c7a5ea009b0a9c863cf2": [
@@ -158,40 +158,40 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
         "instance-manager-846e57fb61de6ad34a4b71c9e98b8878": [
           "rancher/mirrored-longhornio-longhorn-instance-manager:v1.7.2"
         ],
-        "longhorn-csi-plugin-5k5jj": [
+        "longhorn-csi-plugin-hpxhx": [
           "rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0",
           "rancher/mirrored-longhornio-livenessprobe:v2.14.0",
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2"
         ],
-        "longhorn-csi-plugin-bqftv": [
+        "longhorn-csi-plugin-k55rp": [
           "rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0",
           "rancher/mirrored-longhornio-livenessprobe:v2.14.0",
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2"
         ],
-        "longhorn-csi-plugin-z6n4v": [
+        "longhorn-csi-plugin-mtkls": [
           "rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0",
           "rancher/mirrored-longhornio-livenessprobe:v2.14.0",
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2"
         ],
-        "longhorn-driver-deployer-55f9c88499-6f6jk": [
+        "longhorn-driver-deployer-55f9c88499-hg842": [
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2"
         ],
-        "longhorn-manager-pxn45": [
+        "longhorn-manager-4ptjf": [
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2",
           "rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2"
         ],
-        "longhorn-manager-s8hl5": [
+        "longhorn-manager-4qj8r": [
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2",
           "rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2"
         ],
-        "longhorn-manager-x6tjr": [
+        "longhorn-manager-69fzv": [
           "rancher/mirrored-longhornio-longhorn-manager:v1.7.2",
           "rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2"
         ],
-        "longhorn-ui-59c85fcf94-5fbb6": [
+        "longhorn-ui-59c85fcf94-5jqmw": [
           "rancher/mirrored-longhornio-longhorn-ui:v1.7.2"
         ],
-        "longhorn-ui-59c85fcf94-x8s6c": [
+        "longhorn-ui-59c85fcf94-t25pf": [
           "rancher/mirrored-longhornio-longhorn-ui:v1.7.2"
         ]
       }
@@ -201,11 +201,11 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "metal3-system",
       "revision": 1,
       "pods": {
-        "baremetal-operator-controller-manager-86dbf5fb5f-m7g98": [
+        "baremetal-operator-controller-manager-86dbf5fb5f-pzgs7": [
           "registry.suse.com/edge/3.2/baremetal-operator:0.8.0",
           "registry.suse.com/edge/3.2/kube-rbac-proxy:0.18.1"
         ],
-        "metal3-metal3-ironic-758d5dcb89-f9gqv": [
+        "metal3-metal3-ironic-758d5dcb89-fxlpx": [
           "registry.suse.com/edge/3.2/ironic:26.1.2.0",
           "registry.suse.com/edge/3.2/ironic:26.1.2.0",
           "registry.suse.com/edge/3.2/ironic:26.1.2.0"
@@ -217,16 +217,16 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "metallb-system",
       "revision": 1,
       "pods": {
-        "metallb-controller-5756c8898-6qjcx": [
+        "metallb-controller-5756c8898-cd2hw": [
           "registry.suse.com/edge/3.2/metallb-controller:v0.14.8"
         ],
-        "metallb-speaker-98q85": [
+        "metallb-speaker-5j84l": [
           "registry.suse.com/edge/3.2/metallb-speaker:v0.14.8"
         ],
-        "metallb-speaker-nrzbl": [
+        "metallb-speaker-fnt4s": [
           "registry.suse.com/edge/3.2/metallb-speaker:v0.14.8"
         ],
-        "metallb-speaker-vtklv": [
+        "metallb-speaker-t2gg5": [
           "registry.suse.com/edge/3.2/metallb-speaker:v0.14.8"
         ]
       }
@@ -236,13 +236,13 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "cattle-system",
       "revision": 1,
       "pods": {
-        "rancher-7899bd4998-dctzj": [
+        "rancher-7899bd4998-hf6mq": [
           "registry.rancher.com/rancher/rancher:v2.10.1"
         ],
-        "rancher-webhook-7b47cd885-lq5b7": [
+        "rancher-webhook-79798674c5-8tbps": [
           "registry.rancher.com/rancher/rancher-webhook:v0.6.2"
         ],
-        "system-upgrade-controller-56696956b-f4hr6": [
+        "system-upgrade-controller-56696956b-ctxxt": [
           "registry.rancher.com/rancher/system-upgrade-controller:v0.14.2"
         ]
       }
@@ -252,10 +252,10 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "rancher-turtles-system",
       "revision": 1,
       "pods": {
-        "rancher-turtles-cluster-api-operator-ccc87c444-286vg": [
+        "rancher-turtles-cluster-api-operator-ccc87c444-mfb8b": [
           "registry.rancher.com/rancher/cluster-api-operator:v0.14.0"
         ],
-        "rancher-turtles-controller-manager-69d67966d4-rcqms": [
+        "rancher-turtles-controller-manager-69d67966d4-2glt2": [
           "registry.rancher.com/rancher/rancher/turtles:v0.14.1"
         ]
       }
@@ -265,22 +265,22 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "namespace": "sriov-system",
       "revision": 1,
       "pods": {
-        "sriov-network-operator-66566b589b-95gdr": [
+        "sriov-network-operator-66566b589b-lzhnk": [
           "rancher/hardened-sriov-network-operator:v1.4.0-build20241113"
         ],
-        "sriov-network-operator-sriov-nfd-gc-5cc766bbb4-c2wtg": [
+        "sriov-network-operator-sriov-nfd-gc-5cc766bbb4-xnmqm": [
           "rancher/hardened-node-feature-discovery:v0.15.7-build20241113"
         ],
-        "sriov-network-operator-sriov-nfd-master-676d988589-9rf45": [
+        "sriov-network-operator-sriov-nfd-master-676d988589-drbvd": [
           "rancher/hardened-node-feature-discovery:v0.15.7-build20241113"
         ],
-        "sriov-network-operator-sriov-nfd-worker-4ntbv": [
+        "sriov-network-operator-sriov-nfd-worker-8vx5r": [
           "rancher/hardened-node-feature-discovery:v0.15.7-build20241113"
         ],
-        "sriov-network-operator-sriov-nfd-worker-jgbsx": [
+        "sriov-network-operator-sriov-nfd-worker-nsg4d": [
           "rancher/hardened-node-feature-discovery:v0.15.7-build20241113"
         ],
-        "sriov-network-operator-sriov-nfd-worker-kmbs5": [
+        "sriov-network-operator-sriov-nfd-worker-thgvs": [
           "rancher/hardened-node-feature-discovery:v0.15.7-build20241113"
         ]
       }
@@ -288,15 +288,15 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
     "system-upgrade-controller": {
       "version": "105.0.1",
       "namespace": "cattle-system",
-      "revision": 2,
+      "revision": 1,
       "pods": {
-        "rancher-7899bd4998-dctzj": [
+        "rancher-7899bd4998-hf6mq": [
           "registry.rancher.com/rancher/rancher:v2.10.1"
         ],
-        "rancher-webhook-7b47cd885-lq5b7": [
+        "rancher-webhook-79798674c5-8tbps": [
           "registry.rancher.com/rancher/rancher-webhook:v0.6.2"
         ],
-        "system-upgrade-controller-56696956b-f4hr6": [
+        "system-upgrade-controller-56696956b-ctxxt": [
           "registry.rancher.com/rancher/system-upgrade-controller:v0.14.2"
         ]
       }
@@ -325,7 +325,21 @@ podman run -it --rm --network=host -v /etc/rancher/rke2/rke2.yaml:/kubeconfig gh
       "osImage": "SUSE Linux Micro 6.0"
     }
   },
-  "detected_edge_version": "3.2.0"
+  "detected_edge_version": {
+    "release": "3.2.0",
+    "items_matching": {
+      "kubeversion": "v1.31.3+rke2r1",
+      "endpoint-copier-operator": "302.0.0+up0.2.1",
+      "longhorn": "105.1.0+up1.7.2",
+      "metal3": "302.0.0+up0.9.0",
+      "metallb": "302.0.0+up0.14.9",
+      "rancher": "2.10.1",
+      "rancher-turtles": "302.0.0+up0.14.1",
+      "sriov-network-operator": "302.0.0+up1.4.0",
+      "system-upgrade-controller": "105.0.1"
+    },
+    "items_not_matching": {}
+  }
 }
 ```
 
@@ -345,9 +359,9 @@ Release: endpoint-copier-operator
 +-------------------------------------------+-----------------------------------------------------------+
 | Pod Name                                  | Images                                                    |
 +===========================================+===========================================================+
-| endpoint-copier-operator-7bf97b9d45-7qqr7 | registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0 |
+| endpoint-copier-operator-7bf97b9d45-psrs7 | registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0 |
 +-------------------------------------------+-----------------------------------------------------------+
-| endpoint-copier-operator-7bf97b9d45-xks2l | registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0 |
+| endpoint-copier-operator-7bf97b9d45-z2xws | registry.suse.com/edge/3.2/endpoint-copier-operator:0.2.0 |
 +-------------------------------------------+-----------------------------------------------------------+
 
 Release: longhorn
@@ -363,35 +377,35 @@ Release: longhorn
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Pod Name                                          | Images                                                                                                                                                                |
 +===================================================+=======================================================================================================================================================================+
-| csi-attacher-787fd9c6c8-5kdtc                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
+| csi-attacher-787fd9c6c8-nnmkb                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-attacher-787fd9c6c8-mf8c9                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
+| csi-attacher-787fd9c6c8-sd6p5                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-attacher-787fd9c6c8-qmhb2                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
+| csi-attacher-787fd9c6c8-xt64s                     | rancher/mirrored-longhornio-csi-attacher:v4.7.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-provisioner-74486b95c6-5k2tf                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
+| csi-provisioner-74486b95c6-4ghrf                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-provisioner-74486b95c6-n5kxn                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
+| csi-provisioner-74486b95c6-mfrz2                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-provisioner-74486b95c6-qbcfl                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
+| csi-provisioner-74486b95c6-tvt5l                  | rancher/mirrored-longhornio-csi-provisioner:v4.0.1-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-resizer-859d4557fd-b5xt8                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
+| csi-resizer-859d4557fd-9rjjf                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-resizer-859d4557fd-bktc9                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
+| csi-resizer-859d4557fd-hg6fw                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-resizer-859d4557fd-cv8nw                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
+| csi-resizer-859d4557fd-zjm4w                      | rancher/mirrored-longhornio-csi-resizer:v1.12.0                                                                                                                       |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-snapshotter-6f69c6c8cc-dp4zd                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
+| csi-snapshotter-6f69c6c8cc-9vmfp                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-snapshotter-6f69c6c8cc-ftg2q                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
+| csi-snapshotter-6f69c6c8cc-hhx22                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| csi-snapshotter-6f69c6c8cc-tdfvj                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
+| csi-snapshotter-6f69c6c8cc-wm925                  | rancher/mirrored-longhornio-csi-snapshotter:v7.0.2-20241007                                                                                                           |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| engine-image-ei-4623b511-lq8nv                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
+| engine-image-ei-4623b511-6gq8h                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| engine-image-ei-4623b511-pwpdg                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
+| engine-image-ei-4623b511-d4d6d                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| engine-image-ei-4623b511-vmbcg                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
+| engine-image-ei-4623b511-kczg5                    | rancher/mirrored-longhornio-longhorn-engine:v1.7.2                                                                                                                    |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | instance-manager-48853cc97a50c7a5ea009b0a9c863cf2 | rancher/mirrored-longhornio-longhorn-instance-manager:v1.7.2                                                                                                          |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -399,23 +413,23 @@ Release: longhorn
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | instance-manager-846e57fb61de6ad34a4b71c9e98b8878 | rancher/mirrored-longhornio-longhorn-instance-manager:v1.7.2                                                                                                          |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-csi-plugin-5k5jj                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
+| longhorn-csi-plugin-hpxhx                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-csi-plugin-bqftv                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
+| longhorn-csi-plugin-k55rp                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-csi-plugin-z6n4v                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
+| longhorn-csi-plugin-mtkls                         | rancher/mirrored-longhornio-csi-node-driver-registrar:v2.12.0, rancher/mirrored-longhornio-livenessprobe:v2.14.0, rancher/mirrored-longhornio-longhorn-manager:v1.7.2 |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-driver-deployer-55f9c88499-6f6jk         | rancher/mirrored-longhornio-longhorn-manager:v1.7.2                                                                                                                   |
+| longhorn-driver-deployer-55f9c88499-hg842         | rancher/mirrored-longhornio-longhorn-manager:v1.7.2                                                                                                                   |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-manager-pxn45                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
+| longhorn-manager-4ptjf                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-manager-s8hl5                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
+| longhorn-manager-4qj8r                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-manager-x6tjr                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
+| longhorn-manager-69fzv                            | rancher/mirrored-longhornio-longhorn-manager:v1.7.2, rancher/mirrored-longhornio-longhorn-share-manager:v1.7.2                                                        |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-ui-59c85fcf94-5fbb6                      | rancher/mirrored-longhornio-longhorn-ui:v1.7.2                                                                                                                        |
+| longhorn-ui-59c85fcf94-5jqmw                      | rancher/mirrored-longhornio-longhorn-ui:v1.7.2                                                                                                                        |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| longhorn-ui-59c85fcf94-x8s6c                      | rancher/mirrored-longhornio-longhorn-ui:v1.7.2                                                                                                                        |
+| longhorn-ui-59c85fcf94-t25pf                      | rancher/mirrored-longhornio-longhorn-ui:v1.7.2                                                                                                                        |
 +---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Release: metal3
@@ -431,9 +445,9 @@ Release: metal3
 +--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | Pod Name                                               | Images                                                                                                                             |
 +========================================================+====================================================================================================================================+
-| baremetal-operator-controller-manager-86dbf5fb5f-m7g98 | registry.suse.com/edge/3.2/baremetal-operator:0.8.0, registry.suse.com/edge/3.2/kube-rbac-proxy:0.18.1                             |
+| baremetal-operator-controller-manager-86dbf5fb5f-pzgs7 | registry.suse.com/edge/3.2/baremetal-operator:0.8.0, registry.suse.com/edge/3.2/kube-rbac-proxy:0.18.1                             |
 +--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| metal3-metal3-ironic-758d5dcb89-f9gqv                  | registry.suse.com/edge/3.2/ironic:26.1.2.0, registry.suse.com/edge/3.2/ironic:26.1.2.0, registry.suse.com/edge/3.2/ironic:26.1.2.0 |
+| metal3-metal3-ironic-758d5dcb89-fxlpx                  | registry.suse.com/edge/3.2/ironic:26.1.2.0, registry.suse.com/edge/3.2/ironic:26.1.2.0, registry.suse.com/edge/3.2/ironic:26.1.2.0 |
 +--------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 Release: metallb
@@ -449,13 +463,13 @@ Release: metallb
 +------------------------------------+-------------------------------------------------------+
 | Pod Name                           | Images                                                |
 +====================================+=======================================================+
-| metallb-controller-5756c8898-6qjcx | registry.suse.com/edge/3.2/metallb-controller:v0.14.8 |
+| metallb-controller-5756c8898-cd2hw | registry.suse.com/edge/3.2/metallb-controller:v0.14.8 |
 +------------------------------------+-------------------------------------------------------+
-| metallb-speaker-98q85              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
+| metallb-speaker-5j84l              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
 +------------------------------------+-------------------------------------------------------+
-| metallb-speaker-nrzbl              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
+| metallb-speaker-fnt4s              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
 +------------------------------------+-------------------------------------------------------+
-| metallb-speaker-vtklv              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
+| metallb-speaker-t2gg5              | registry.suse.com/edge/3.2/metallb-speaker:v0.14.8    |
 +------------------------------------+-------------------------------------------------------+
 
 Release: rancher
@@ -471,11 +485,11 @@ Release: rancher
 +-------------------------------------------+----------------------------------------------------------------+
 | Pod Name                                  | Images                                                         |
 +===========================================+================================================================+
-| rancher-7899bd4998-dctzj                  | registry.rancher.com/rancher/rancher:v2.10.1                   |
+| rancher-7899bd4998-hf6mq                  | registry.rancher.com/rancher/rancher:v2.10.1                   |
 +-------------------------------------------+----------------------------------------------------------------+
-| rancher-webhook-7b47cd885-lq5b7           | registry.rancher.com/rancher/rancher-webhook:v0.6.2            |
+| rancher-webhook-79798674c5-8tbps          | registry.rancher.com/rancher/rancher-webhook:v0.6.2            |
 +-------------------------------------------+----------------------------------------------------------------+
-| system-upgrade-controller-56696956b-f4hr6 | registry.rancher.com/rancher/system-upgrade-controller:v0.14.2 |
+| system-upgrade-controller-56696956b-ctxxt | registry.rancher.com/rancher/system-upgrade-controller:v0.14.2 |
 +-------------------------------------------+----------------------------------------------------------------+
 
 Release: rancher-turtles
@@ -491,9 +505,9 @@ Release: rancher-turtles
 +------------------------------------------------------+-----------------------------------------------------------+
 | Pod Name                                             | Images                                                    |
 +======================================================+===========================================================+
-| rancher-turtles-cluster-api-operator-ccc87c444-286vg | registry.rancher.com/rancher/cluster-api-operator:v0.14.0 |
+| rancher-turtles-cluster-api-operator-ccc87c444-mfb8b | registry.rancher.com/rancher/cluster-api-operator:v0.14.0 |
 +------------------------------------------------------+-----------------------------------------------------------+
-| rancher-turtles-controller-manager-69d67966d4-rcqms  | registry.rancher.com/rancher/rancher/turtles:v0.14.1      |
+| rancher-turtles-controller-manager-69d67966d4-2glt2  | registry.rancher.com/rancher/rancher/turtles:v0.14.1      |
 +------------------------------------------------------+-----------------------------------------------------------+
 
 Release: sriov-network-operator
@@ -509,17 +523,17 @@ Release: sriov-network-operator
 +----------------------------------------------------------+---------------------------------------------------------------+
 | Pod Name                                                 | Images                                                        |
 +==========================================================+===============================================================+
-| sriov-network-operator-66566b589b-95gdr                  | rancher/hardened-sriov-network-operator:v1.4.0-build20241113  |
+| sriov-network-operator-66566b589b-lzhnk                  | rancher/hardened-sriov-network-operator:v1.4.0-build20241113  |
 +----------------------------------------------------------+---------------------------------------------------------------+
-| sriov-network-operator-sriov-nfd-gc-5cc766bbb4-c2wtg     | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
+| sriov-network-operator-sriov-nfd-gc-5cc766bbb4-xnmqm     | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
 +----------------------------------------------------------+---------------------------------------------------------------+
-| sriov-network-operator-sriov-nfd-master-676d988589-9rf45 | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
+| sriov-network-operator-sriov-nfd-master-676d988589-drbvd | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
 +----------------------------------------------------------+---------------------------------------------------------------+
-| sriov-network-operator-sriov-nfd-worker-4ntbv            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
+| sriov-network-operator-sriov-nfd-worker-8vx5r            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
 +----------------------------------------------------------+---------------------------------------------------------------+
-| sriov-network-operator-sriov-nfd-worker-jgbsx            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
+| sriov-network-operator-sriov-nfd-worker-nsg4d            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
 +----------------------------------------------------------+---------------------------------------------------------------+
-| sriov-network-operator-sriov-nfd-worker-kmbs5            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
+| sriov-network-operator-sriov-nfd-worker-thgvs            | rancher/hardened-node-feature-discovery:v0.15.7-build20241113 |
 +----------------------------------------------------------+---------------------------------------------------------------+
 
 Release: system-upgrade-controller
@@ -528,18 +542,18 @@ Release: system-upgrade-controller
 +-----------+---------------+
 | Namespace | cattle-system |
 +-----------+---------------+
-| Revision  | 2             |
+| Revision  | 1             |
 +-----------+---------------+
 
   Pods:
 +-------------------------------------------+----------------------------------------------------------------+
 | Pod Name                                  | Images                                                         |
 +===========================================+================================================================+
-| rancher-7899bd4998-dctzj                  | registry.rancher.com/rancher/rancher:v2.10.1                   |
+| rancher-7899bd4998-hf6mq                  | registry.rancher.com/rancher/rancher:v2.10.1                   |
 +-------------------------------------------+----------------------------------------------------------------+
-| rancher-webhook-7b47cd885-lq5b7           | registry.rancher.com/rancher/rancher-webhook:v0.6.2            |
+| rancher-webhook-79798674c5-8tbps          | registry.rancher.com/rancher/rancher-webhook:v0.6.2            |
 +-------------------------------------------+----------------------------------------------------------------+
-| system-upgrade-controller-56696956b-f4hr6 | registry.rancher.com/rancher/system-upgrade-controller:v0.14.2 |
+| system-upgrade-controller-56696956b-ctxxt | registry.rancher.com/rancher/system-upgrade-controller:v0.14.2 |
 +-------------------------------------------+----------------------------------------------------------------+
 
 Node Information:
@@ -554,6 +568,29 @@ Node Information:
 +-----------+----------------+------------------+-------------------+--------------------+----------------------+
 
 SUSE Edge detected version: 3.2.0
+
+SUSE Edge items matching:
++---------------------------+------------------+
+| Component                 | Version          |
++===========================+==================+
+| kubeversion               | v1.31.3+rke2r1   |
++---------------------------+------------------+
+| endpoint-copier-operator  | 302.0.0+up0.2.1  |
++---------------------------+------------------+
+| longhorn                  | 105.1.0+up1.7.2  |
++---------------------------+------------------+
+| metal3                    | 302.0.0+up0.9.0  |
++---------------------------+------------------+
+| metallb                   | 302.0.0+up0.14.9 |
++---------------------------+------------------+
+| rancher                   | 2.10.1           |
++---------------------------+------------------+
+| rancher-turtles           | 302.0.0+up0.14.1 |
++---------------------------+------------------+
+| sriov-network-operator    | 302.0.0+up1.4.0  |
++---------------------------+------------------+
+| system-upgrade-controller | 105.0.1          |
++---------------------------+------------------+
 ```
 
 ## GitHub Actions
