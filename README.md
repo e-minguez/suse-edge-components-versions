@@ -1,3 +1,5 @@
+Deprecated, see the [SUSE Edge support tools](https://github.com/suse-edge/support-tools/tree/main/components-versions) repository instead.
+
 # SUSE Edge Components Versions
 
 This tool retrieves version information for Helm charts, pods, and nodes in a SUSE Edge Kubernetes cluster.
